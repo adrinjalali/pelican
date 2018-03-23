@@ -468,7 +468,7 @@ def main():
 
                         if modified['content'] is None:
                             reader_descs = set([str(r)
-                                                for r readers.active_readers])
+                                                for r in readers.active_readers])
                             
                             logger.warning('No valid files found in content ' +
                                            'for the active readers:\n' +
@@ -496,7 +496,7 @@ def main():
         else:
             if next(watchers['content']) is None:
                 reader_descs = set([str(r)
-                                    for r readers.active_readers])
+                                    for r in readers.active_readers])
                 
                 logger.warning('No valid files found in content ' +
                                'for the active readers:\n' +

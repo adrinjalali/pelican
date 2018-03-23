@@ -507,6 +507,10 @@ class Readers(FileStampDataCacher):
         super(Readers, self).__init__(settings, cache_name,
                                       caching_policy, load_policy,
                                       )
+        
+    @property
+    def active_readers(self):
+        return [x for x in self.readers.values() if x.enabled]
 
     @property
     def extensions(self):
