@@ -118,6 +118,10 @@ class BaseReader(object):
         metadata = {}
         return content, metadata
 
+    def __str__(self):
+        return '%s (%s)' % (type(self).__name__, 
+                            ', '.join(self.file_extensions))
+
 
 class _FieldBodyTranslator(HTMLTranslator):
 

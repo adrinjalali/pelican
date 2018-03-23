@@ -467,12 +467,11 @@ def main():
                             ', '.join(k for k, v in modified.items() if v)))
 
                         if modified['content'] is None:
-                            reader_descs = set(['%s (%s)' % (type(r).__name__, 
-                                                             ', '.join(r.file_extensions)) 
-                                                for r in readers.readers.values()
-                                                if r.enabled])
+                            reader_descs = set([str(r)
+                                                for r readers.active_readers])
                             
-                            logger.warning('No valid files found in content for the active readers:\n' +
+                            logger.warning('No valid files found in content ' +
+                                           'for the active readers:\n' +
                                            '\n'.join(reader_descs))
 
                         if modified['theme'] is None:
@@ -496,12 +495,11 @@ def main():
 
         else:
             if next(watchers['content']) is None:
-                reader_descs = set(['%s (%s)' % (type(r).__name__, 
-                                                 ', '.join(r.file_extensions)) 
-                                    for r in readers.readers.values()
-                                    if r.enabled])
-
-                logger.warning('No valid files found in content for the active readers:\n' +
+                reader_descs = set([str(r)
+                                    for r readers.active_readers])
+                
+                logger.warning('No valid files found in content ' +
+                               'for the active readers:\n' +
                                '\n'.join(reader_descs))
 
             if next(watchers['theme']) is None:
